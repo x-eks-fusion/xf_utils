@@ -61,7 +61,8 @@ extern "C" {
 #endif
 
 /**
- * @} // xf_stdlib_configuration
+ * End of xf_stdlib_configuration
+ * @}
  */
 
 /**
@@ -88,7 +89,44 @@ extern "C" {
 #endif
 
 /**
- * @} // xf_stdlib_configuration
+ * End of xf_string_configuration
+ * @} 
+ */
+
+/**
+ * @defgroup xf_stdio_configuration xf_stdio 配置.
+ * @{
+ */
+
+#if !defined(XF_STDIO_ENABLE) || (XF_STDIO_ENABLE)
+#   define XF_STDIO_IS_ENABLE     (1)
+#else
+#   define XF_STDIO_IS_ENABLE     (0)
+#endif
+
+#ifndef xf_user_sprintf
+#   define xf_user_sprintf(dest, format, ...)  sprintf(dest, format, ##__VA_ARGS__)
+#endif
+
+#ifndef xf_user_snprintf
+#   define xf_user_snprintf(dest, size, format, ...)    snprintf(dest, size, format, ##__VA_ARGS__)
+#endif
+
+#ifndef xf_user_vsprintf
+#   define xf_user_vsprintf(dest, format, ap)           vsprintf(dest, format, ap)
+#endif
+
+#ifndef xf_user_vsnprintf
+#   define xf_user_vsnprintf(dest, size, format, ap)    vsnprintf(dest, size, format, ap)
+#endif
+
+#ifndef xf_user_sscanf
+#   define xf_user_sscanf(source, format, ...)          sscanf(source, format, ##__VA_ARGS__)
+#endif
+
+/**
+ * End of xf_stdio_configuration
+ * @}
  */
 
 /* ==================== [Typedefs] ========================================== */
