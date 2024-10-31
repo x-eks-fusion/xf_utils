@@ -61,7 +61,8 @@ extern "C" {
 #endif
 
 /**
- * @} // xf_stdlib_configuration
+ * End of xf_stdlib_configuration
+ * @}
  */
 
 /**
@@ -88,7 +89,8 @@ extern "C" {
 #endif
 
 /**
- * @} // xf_string_configuration
+ * End of xf_string_configuration
+ * @} 
  */
 
 /**
@@ -107,23 +109,24 @@ extern "C" {
 #endif
 
 #ifndef xf_user_snprintf
-#   define xf_user_snprintf(dest, size, format, ...)  snprintf(dest, size, format, ##__VA_ARGS__)
+#   define xf_user_snprintf(dest, size, format, ...)    snprintf(dest, size, format, ##__VA_ARGS__)
 #endif
 
 #ifndef xf_user_vsprintf
-#   define xf_user_vsprintf(dest, format, ap)  vsprintf(dest, format, ap)
+#   define xf_user_vsprintf(dest, format, ap)           vsprintf(dest, format, ap)
 #endif
 
 #ifndef xf_user_vsnprintf
-#   define xf_user_vsnprintf(dest, size, format, ap)  vsnprintf(dest, size, format, ap)
+#   define xf_user_vsnprintf(dest, size, format, ap)    vsnprintf(dest, size, format, ap)
 #endif
 
 #ifndef xf_user_sscanf
-#   define xf_user_sscanf(dest, format, ...)  sscanf(dest, format, ##__VA_ARGS__)
+#   define xf_user_sscanf(source, format, ...)          sscanf(source, format, ##__VA_ARGS__)
 #endif
 
 /**
- * @} // xf_stdio_configuration
+ * End of xf_stdio_configuration
+ * @}
  */
 
 /* ==================== [Typedefs] ========================================== */

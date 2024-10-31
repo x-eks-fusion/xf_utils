@@ -30,7 +30,7 @@ extern "C" {
 #define xf_snprintf(dest, size, format, ...)    xf_user_snprintf(dest, size, format, ##__VA_ARGS__)
 #define xf_vsprintf(dest, format, va)           xf_user_vsprintf(dest, format, va)
 #define xf_vsnprintf(dest, size, format, va)    xf_user_vsnprintf(dest, size, format, va)
-#define xf_sscanf(dest, format, ...)            xf_user_sscanf(dest, format, ##__VA_ARGS__)
+#define xf_sscanf(source, format, ...)            xf_user_sscanf(source, format, ##__VA_ARGS__)
 
 /* ==================== [Typedefs] ========================================== */
 
