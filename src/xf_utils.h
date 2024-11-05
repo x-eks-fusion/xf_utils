@@ -24,6 +24,7 @@
 #include "xf_std/xf_stdint.h"
 #include "xf_std/xf_stdlib.h"
 #include "xf_std/xf_string.h"
+#include "xf_std/xf_stdio.h"
 
 #ifdef __cplusplus
 extern "C" {
