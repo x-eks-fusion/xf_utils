@@ -1,12 +1,12 @@
 /**
  * @file xf_stdlib.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2024-06-28
- * 
+ *
  * @copyright Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __XF_STDLIB_H__
@@ -34,7 +34,6 @@ extern "C" {
 /* ==================== [Global Prototypes] ================================= */
 
 /* ==================== [Macros] ============================================ */
-
 
 #ifdef __cplusplus
 } /* extern "C" */

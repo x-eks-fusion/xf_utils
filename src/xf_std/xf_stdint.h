@@ -36,7 +36,6 @@ typedef unsigned short                  uint16_t;       /*!< 16bit 无符号整�
 typedef unsigned int                    uint32_t;       /*!< 32bit 无符号整形 */
 typedef long     int                    intptr_t;       /*!< 指针大小类型 */
 
-
 #ifndef UINT8_MAX
 #define UINT8_MAX                       (0xffU)         /*!<  uint8_t 的最大数字 */
 #endif

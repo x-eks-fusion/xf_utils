@@ -17,9 +17,8 @@
 #include "xf_std_config.h"
 
 #if XF_STDBOOL_IS_ENABLE
-    #include <stdbool.h>
+#include <stdbool.h>
 #endif
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,7 +35,6 @@ typedef uint8_t                         bool;           /*!< 布尔类型 */
 #endif
 
 #endif
-
 
 /* ==================== [Typedefs] ========================================== */
 

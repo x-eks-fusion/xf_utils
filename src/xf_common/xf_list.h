@@ -579,7 +579,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define xf_list_entry(ptr, type, member) \
     xf_container_of(ptr, type, member)
 
-
 /**
  * @brief xf_list_first_entry - 获取链表中的第一个元素.
  *
@@ -593,7 +592,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define xf_list_first_entry(ptr, type, member) \
     xf_list_entry((ptr)->next, type, member)
 
-
 /**
  * @brief xf_list_for_each - 迭代链表.
  *
@@ -602,7 +600,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  */
 #define xf_list_for_each(pos, head) \
     for ((pos) = (head)->next; (pos) != (head); (pos) = (pos)->next)
-
 
 /**
  * @brief __xf_list_for_each - 迭代链表.
@@ -615,7 +612,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define __xf_list_for_each(pos, head) \
     for ((pos) = (head)->next; (pos) != (head); (pos) = (pos)->next)
 
-
 /**
  * @brief xf_list_for_each_prev - 反向迭代链表.
  *
@@ -624,7 +620,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  */
 #define xf_list_for_each_prev(pos, head) \
     for ((pos) = (head)->prev; (pos) != (head); (pos) = (pos)->prev)
-
 
 /**
  * @brief xf_list_for_each_safe - 迭代链表的安全版本, 防止删除链表节点时可能出现的问题.
@@ -636,7 +631,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define xf_list_for_each_safe(pos, n, head) \
     for ((pos) = (head)->next, (n) = (pos)->next; (pos) != (head); \
          (pos) = (n), (n) = (pos)->next)
-
 
 /**
  * @brief xf_list_for_each_safe - 方向迭代链表的安全版本, 防止删除链表节点时可能出现的问题.
@@ -657,7 +651,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  *
  * pos 和 n 的数据类型必须相同!
  */
-
 
 /**
  * @brief 从头到尾遍历给定的结构体对象
@@ -684,7 +677,6 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
     for ((pos) = xf_list_entry((head)->prev, type, member); \
          &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.prev, type, member))
-
 
 /**
  * @brief 在xf_list_for_each_entry_continue调用之前，确保传入的pos有效

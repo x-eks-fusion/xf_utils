@@ -4,9 +4,9 @@
  * @brief 位操作.
  * @version 1.0
  * @date 2024-06-18
- * 
+ *
  * Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __XF_BIT_DEFS_H__

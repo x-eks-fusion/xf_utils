@@ -4,9 +4,9 @@
  * @brief xfusion 版本号.
  * @version 1.0
  * @date 2024-06-19
- * 
+ *
  * Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __XF_VERSION_H__

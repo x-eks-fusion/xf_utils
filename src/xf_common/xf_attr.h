@@ -43,7 +43,6 @@ extern "C" {
 #   define __weak
 #endif
 
-
 /**
  * @brief 编辑器不会优化掉被 __used 修饰的符号，
  * 即使在代码中即使没有使用到该符号。
@@ -67,7 +66,6 @@ extern "C" {
 #   define __aligned(x)
 #   warning "__aligned has no effect !"
 #endif
-
 
 /**
  * @brief 指定函数或变量的段位置，如 data 或 bss。

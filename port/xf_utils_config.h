@@ -36,7 +36,6 @@ extern "C" {
  */
 #define XF_COMMON_ERR_TO_NAME_LOOKUP_DISABLE    (1)
 
-
 #define XF_ATTRIBUTE_ENABLE                     (1)
 
 #define XF_LOG_LEVEL                            XF_LOG_VERBOSE

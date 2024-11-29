@@ -17,9 +17,8 @@
 #include "xf_std_config.h"
 
 #if XF_STDDEF_IS_ENABLE
-    #include <stddef.h>
+#include <stddef.h>
 #endif
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,7 +35,6 @@ extern "C" {
 typedef long     int                    ptrdiff_t;      /*!< 指针比较大小类型 */
 
 typedef long unsigned int size_t;
-
 
 /* ==================== [Typedefs] ========================================== */
 

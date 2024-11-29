@@ -24,15 +24,13 @@ extern "C" {
 
 /**
  * @brief XF_ERROR_CHECK 的结果。如果不对接则为无限死循环
- * 
  */
 #ifndef XF_CHECK_ERROR_HANDLER
-#   define XF_CHECK_ERROR_HANDLER while(1);
+#   define XF_CHECK_ERROR_HANDLER   while(1);
 #endif
 
 /**
  * @brief 是否使能 check 系列的检查
- * 
  */
 #if !defined(XF_CHECK_ENABLE) || (XF_CHECK_ENABLE)
 #define XF_CHECK_IS_ENABLE          (1)
@@ -42,7 +40,6 @@ extern "C" {
 
 /**
  * @brief 是否使能 XF_ERROR_CHECK 检查
- * 
  */
 #if !defined(XF_ASSERT_ENABLE) || (XF_ASSERT_ENABLE)
 #define XF_ASSERT_IS_ENABLE          (1)
@@ -51,13 +48,12 @@ extern "C" {
 #endif
 
 /**
- * @brief 
- * 
+ * @brief 是否使能 ERROR_CHECK 系列的检查
  */
 #if !defined(XF_ERROR_CHECK_ENABLE) || (XF_ERROR_CHECK_ENABLE)
-#define XF_ERROR_CHECK_IS_ENABLE          (1)
+#define XF_ERROR_CHECK_IS_ENABLE    (1)
 #else
-#define XF_ERROR_CHECK_IS_ENABLE          (0)
+#define XF_ERROR_CHECK_IS_ENABLE    (0)
 #endif
 
 /* ==================== [Typedefs] ========================================== */
@@ -71,4 +67,3 @@ extern "C" {
 #endif
 
 #endif // __XF_CHECK_CONFIG_H__
-

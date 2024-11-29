@@ -17,7 +17,7 @@
 #include "xf_std_config.h"
 
 #if XF_STDIO_IS_ENABLE
-    #include <stdio.h>
+#include <stdio.h>
 #endif
 
 #ifdef __cplusplus

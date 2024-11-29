@@ -56,7 +56,6 @@ extern "C" {
 #define XF_CHECK_ACTION_RETURN(condition, retval, action)
 #endif
 
-
 #if XF_CHECK_IS_ENABLE || XF_ASSERT_IS_ENABLE
 /**
  * @brief 检查条件(condition)，成立则执行(action)，并跳转到(label)
@@ -100,7 +99,6 @@ extern "C" {
         !(condition), retval, \
         XF_LOGE((tag), format, ##__VA_ARGS__); \
     )
-
 
 #define XF_ASSERT_GOTO(condition, label, tag, format, ...) \
     XF_CHECK_ACTION_GOTO( \

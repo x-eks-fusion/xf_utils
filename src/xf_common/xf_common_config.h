@@ -34,7 +34,7 @@ extern "C" {
 
 /**
  * @brief 是否使用 xf_attr中的宏
- * 
+ *
  */
 #if !defined(XF_ATTRIBUTE_ENABLE) || (XF_ATTRIBUTE_ENABLE)
 #   define XF_ATTRIBUTE_IS_ENABLE (1)
