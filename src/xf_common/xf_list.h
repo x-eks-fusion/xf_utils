@@ -35,9 +35,11 @@
 #include "xf_predef.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_list xf_list
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_list xf_list
  * @brief 移除 gnu 特性的双向链表。
+ * @endcond
  * @{
  */
 
@@ -1002,7 +1004,7 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #endif
 
 /**
- * End of group_xf_utils_user_common_list
+ * End of group_xf_utils_common_list
  * @}
  */
 

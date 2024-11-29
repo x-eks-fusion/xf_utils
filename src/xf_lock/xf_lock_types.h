@@ -21,7 +21,9 @@ extern "C" {
 #endif
 
 /**
- * @ingroup group_xf_utils_user_lock
+ * @cond (XFAPI_USER || XFAPI_PORT || XFAPI_INTERNAL)
+ * @ingroup group_xf_utils_lock
+ * @endcond
  * @{
  */
 
@@ -38,12 +40,14 @@ extern "C" {
 typedef void *xf_lock_t;
 
 /**
- * End of group_xf_utils_user_lock
+ * End of group_xf_utils_lock
  * @}
  */
 
 /**
+ * @cond XFAPI_PORT
  * @ingroup group_xf_utils_port_lock
+ * @endcond
  * @{
  */
 

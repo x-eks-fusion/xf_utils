@@ -21,9 +21,11 @@
 #endif
 
 /**
- * @ingroup group_xf_utils_user_std
- * @defgroup group_xf_utils_user_std_stdbool xf_stdbool
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stdbool xf_stdbool
  * @brief 对标准库 stdbool.h 的封装。
+ * @endcond
  * @{
  */
 
@@ -54,7 +56,7 @@ typedef uint8_t                         bool;           /*!< 布尔类型 */
 #endif
 
 /**
- * End of group_xf_utils_user_std_stdbool
+ * End of group_xf_utils_std_stdbool
  * @}
  */
 

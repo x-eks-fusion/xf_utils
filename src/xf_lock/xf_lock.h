@@ -18,9 +18,11 @@
 #include "xf_lock_types.h"
 
 /**
- * @ingroup group_xf_utils_user
- * @defgroup group_xf_utils_user_lock xf_lock
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils
+ * @defgroup group_xf_utils_lock xf_lock
  * @brief 锁接口（通常对接互斥锁）。
+ * @endcond
  * @{
  */
 
@@ -122,7 +124,7 @@ int xf_lock_unlock(xf_lock_t lock);
 #endif
 
 /**
- * End of group_xf_utils_user_lock
+ * End of group_xf_utils_lock
  * @}
  */
 

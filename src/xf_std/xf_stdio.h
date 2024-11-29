@@ -21,9 +21,11 @@
 #endif
 
 /**
- * @ingroup group_xf_utils_user_std
- * @defgroup group_xf_utils_user_std_stdio xf_stdio
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stdio xf_stdio
  * @brief 对标准库 stdio.h 的封装。
+ * @endcond
  * @{
  */
 
@@ -50,7 +52,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_std_stdio
+ * End of group_xf_utils_std_stdio
  * @}
  */
 

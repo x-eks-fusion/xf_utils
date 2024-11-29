@@ -17,9 +17,11 @@
 #include "xf_predef.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_version xf_version
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_version xf_version
  * @brief xfusion 版本号.
+ * @endcond
  * @{
  */
 
@@ -72,7 +74,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_common_version
+ * End of group_xf_utils_common_version
  * @}
  */
 

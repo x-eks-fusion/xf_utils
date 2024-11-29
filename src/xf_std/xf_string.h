@@ -21,9 +21,11 @@
 #endif
 
 /**
- * @ingroup group_xf_utils_user_std
- * @defgroup group_xf_utils_user_std_string xf_string
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_string xf_string
  * @brief 对标准库 string.h 的封装。
+ * @endcond
  * @{
  */
 
@@ -49,7 +51,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_std_string
+ * End of group_xf_utils_std_string
  * @}
  */
 

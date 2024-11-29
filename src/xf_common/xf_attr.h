@@ -17,9 +17,11 @@
 #include "xf_common_config.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_attribute xf_attribute
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_attribute xf_attribute
  * @brief 编译器属性。用于屏蔽不同编译器属性的区别。
+ * @endcond
  * @{
  */
 
@@ -137,7 +139,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_common_attribute
+ * End of group_xf_utils_common_attribute
  * @}
  */
 

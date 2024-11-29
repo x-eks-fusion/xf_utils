@@ -19,9 +19,11 @@
 #include "xf_check_config.h"
 
 /**
- * @ingroup group_xf_utils_user
- * @defgroup group_xf_utils_user_check xf_check
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils
+ * @defgroup group_xf_utils_check xf_check
  * @brief 运行时检查宏。
+ * @endcond
  * @{
  */
 
@@ -194,7 +196,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_check
+ * End of group_xf_utils_check
  * @}
  */
 

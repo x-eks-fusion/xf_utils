@@ -10,38 +10,29 @@
  */
 
 /**
+ * @cond (XFAPI_USER || XFAPI_PORT || XFAPI_INTERNAL)
  * @defgroup group_xf_utils xf_utils
- * @brief 提供多平台通用工具（功能）。
+ * @brief 提供多平台通用工具（功能）。如通用宏、日志、锁等。
+ * @endcond
  */
 
 /**
+ * @cond XFAPI_USER
  * @ingroup group_xf_utils
- * @defgroup group_xf_utils_user 用户接口
- * @brief 调用具体功能的接口。如通用宏、日志、锁等。
- *
- * xfusion 用户使用 xf_utils 时只需 `#include "xf_utils.h"` 即可。
- *
- */
-
-/**
- * @ingroup group_xf_utils_user
- * @defgroup group_xf_utils_user_std xf_std
+ * @defgroup group_xf_utils_std xf_std
  * @brief 标准库封装。
+ * @endcond
  */
 
 /**
+ * @cond XFAPI_PORT
  * @ingroup group_xf_utils
- * @defgroup group_xf_utils_port 移植接口
+ * @defgroup group_xf_utils_port porting
  * @brief 用于对接 xf_utils 的接口。
  *
  * 对接 xf_utils 时只需 `#include "xf_utils_port.h"` 即可。
  *
- */
-
-/**
- * @ingroup group_xf_utils
- * @defgroup group_xf_utils_internal 内部接口
- * @brief 组件内部实现某些功能时定义的接口。用户不一定需要。
+ * @endcond
  */
 
 #ifndef __XF_UTILS_H__

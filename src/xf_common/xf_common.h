@@ -13,9 +13,11 @@
 #define __XF_COMMON_H__
 
 /**
- * @ingroup group_xf_utils_user
- * @defgroup group_xf_utils_user_common xf_common
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils
+ * @defgroup group_xf_utils_common xf_common
  * @brief 通用宏定义。
+ * @endcond
  */
 
 /* ==================== [Includes] ========================================== */

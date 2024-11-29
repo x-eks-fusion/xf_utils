@@ -17,9 +17,11 @@
 #include "xf_common_config.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_predef xf_predef
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_predef xf_predef
  * @brief 预定义宏. 如 UNUSED, STR, xf_offsetof, xf_container_of.
+ * @endcond
  * @{
  */
 
@@ -176,7 +178,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_common_predef
+ * End of group_xf_utils_common_predef
  * @}
  */
 

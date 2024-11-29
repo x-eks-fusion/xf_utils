@@ -18,9 +18,11 @@
 #include "../xf_common/xf_common.h"
 
 /**
- * @ingroup group_xf_utils_user
- * @defgroup group_xf_utils_user_log xf_utils_log
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils
+ * @defgroup group_xf_utils_log xf_utils_log
  * @brief 日志宏的封装。
+ * @endcond
  * @{
  */
 
@@ -206,7 +208,7 @@ xf_err_t xf_dump_mem(void *addr, size_t size, uint8_t flags_mask);
 #endif
 
 /**
- * End of group_xf_utils_user_log
+ * End of group_xf_utils_log
  * @}
  */
 

@@ -17,9 +17,11 @@
 #include "xf_lock_types.h"
 
 /**
+ * @cond XFAPI_PORT
  * @ingroup group_xf_utils_port
  * @defgroup group_xf_utils_port_lock xf_lock
  * @brief 对接 xf_lock 操作集。
+ * @endcond
  * @{
  */
 

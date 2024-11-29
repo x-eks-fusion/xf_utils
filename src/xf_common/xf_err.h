@@ -18,9 +18,11 @@
 #include "../xf_std/xf_stdint.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_err xf_err
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_err xf_err
  * @brief 错误码及错误类型定义.
+ * @endcond
  * @{
  */
 
@@ -83,7 +85,7 @@ const char *xf_err_to_name(xf_err_t code);
 #endif
 
 /**
- * End of group_xf_utils_user_common_err
+ * End of group_xf_utils_common_err
  * @}
  */
 

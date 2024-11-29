@@ -21,9 +21,11 @@
 #endif
 
 /**
- * @ingroup group_xf_utils_user_std
- * @defgroup group_xf_utils_user_std_stddef xf_stddef
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stddef xf_stddef
  * @brief 对标准库 stddef.h 的封装。
+ * @endcond
  * @{
  */
 
@@ -56,7 +58,7 @@ typedef long unsigned int               size_t;
 #endif
 
 /**
- * End of group_xf_utils_user_std_stddef
+ * End of group_xf_utils_std_stddef
  * @}
  */
 

@@ -17,9 +17,11 @@
 #include "xf_common_config.h"
 
 /**
- * @ingroup group_xf_utils_user_common
- * @defgroup group_xf_utils_user_common_bit_defs xf_bit_defs
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_bit_defs xf_bit_defs
  * @brief 位定义以及位操作宏。
+ * @endcond
  * @{
  */
 
@@ -438,7 +440,7 @@ extern "C" {
 #endif
 
 /**
- * End of group_xf_utils_user_common_bit_defs
+ * End of group_xf_utils_common_bit_defs
  * @}
  */
 

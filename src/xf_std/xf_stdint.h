@@ -21,9 +21,11 @@
 #endif
 
 /**
- * @ingroup group_xf_utils_user_std
- * @defgroup group_xf_utils_user_std_stdint xf_stdint
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stdint xf_stdint
  * @brief 对标准库 stdint.h 的封装。
+ * @endcond
  * @{
  */
 
@@ -66,7 +68,7 @@ typedef long     int                    intptr_t;       /*!< 指针大小类型 
 #endif
 
 /**
- * End of group_xf_utils_user_std_stdint
+ * End of group_xf_utils_std_stdint
  * @}
  */
 
