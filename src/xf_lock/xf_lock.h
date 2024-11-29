@@ -1,7 +1,8 @@
 /**
  * @file xf_lock.h
  * @author catcatBlue (catcatblue@qq.com)
- * @brief
+ * @brief 锁抽象层。
+ * @note 通常对接互斥锁。
  * @version 1.0
  * @date 2024-06-25
  *
@@ -15,6 +16,13 @@
 /* ==================== [Includes] ========================================== */
 
 #include "xf_lock_types.h"
+
+/**
+ * @ingroup group_xf_utils_user
+ * @defgroup group_xf_utils_user_lock xf_lock
+ * @brief 锁接口（通常对接互斥锁）。
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -110,7 +118,12 @@ int xf_lock_unlock(xf_lock_t lock);
 /* ==================== [Macros] ============================================ */
 
 #ifdef __cplusplus
-}
+} /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_user_lock
+ * @}
+ */
 
 #endif /* __XF_LOCK_H__ */

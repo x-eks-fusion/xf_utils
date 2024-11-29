@@ -16,6 +16,13 @@
 
 #include "xf_common_config.h"
 
+/**
+ * @ingroup group_xf_utils_user_common
+ * @defgroup group_xf_utils_user_common_attribute xf_attribute
+ * @brief 编译器属性。用于屏蔽不同编译器属性的区别。
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -29,37 +36,38 @@ extern "C" {
 
 #if XF_ATTRIBUTE_IS_ENABLE
 
+#if defined(__GNUC__)
+#   if !defined(__weak)
 /**
  * @brief 弱声明符号。
  * 被 __weak 修饰的符号（变量或函数）
  * 可以被 **没有** 用 __weak 修饰的符号覆盖或重定义。
  */
-
-#if defined(__GNUC__)
-#   if !defined(__weak)
 #       define __weak __attribute__((weak))
 #   endif
 #else
 #   define __weak
 #endif
 
+#if defined(__GNUC__)
+#   if !defined(__used)
 /**
  * @brief 编辑器不会优化掉被 __used 修饰的符号，
  * 即使在代码中即使没有使用到该符号。
  */
-#if defined(__GNUC__)
-#   if !defined(__used)
 #       define __used __attribute__((used))
 #   endif
 #else
 #   define __used
 #endif
 
-/**
- * @brief 指定变量或结构体的对齐方式（单位字节）。
- */
 #if defined(__GNUC__)
 #   if !defined(__aligned)
+/**
+ * @brief 指定变量或结构体的对齐方式（单位字节）。
+ *
+ * @param x 对齐到的字节数。
+ */
 #       define __aligned(x) __attribute__((aligned(x)))
 #   endif
 #else
@@ -67,47 +75,50 @@ extern "C" {
 #   warning "__aligned has no effect !"
 #endif
 
+#if defined(__GNUC__)
+#   if !defined(__section)
 /**
  * @brief 指定函数或变量的段位置，如 data 或 bss。
  *
- * @note section 属性并非在所有平台上都可用。
+ * @param x 目标段名。
  */
-#if defined(__GNUC__)
-#   if !defined(__section)
 #       define __section(x) __attribute__((section(x)))
 #   endif
 #else
 #   define __section(x)
 #endif
 
-/**
- * @brief 分支预测，x 为真的可能性更大。
- */
 #if defined(__GNUC__)
 #   if !defined(likely)
+/**
+ * @brief 分支预测，优化条件为 @b 真 的可能性更大的情况。
+ *
+ * @param x 判断语句，且真的可能性更大。
+ */
 #       define likely(x) __builtin_expect(!!(x), 1)
 #   endif
 #else
 #   define likely(x) (x)
 #endif
 
-/**
- * @brief 分支预测，x 为假的可能性更大。
- */
 #if defined(__GNUC__)
 #   if !defined(unlikely)
+/**
+ * @brief 分支预测，优化条件为 @b 假 的可能性更大的情况。
+ *
+ * @param x 判断语句，且假的可能性更大。
+ */
 #       define unlikely(x) __builtin_expect(!!(x), 0)
 #   endif
 #else
 #   define unlikely(x) (x)
 #endif
 
-/**
- * @brief 取消结构在编译过程中的优化对齐，
- * 按照实际占用字节数进行对齐（一般不使用）。
- */
 #if defined(__GNUC__)
 #   if !defined(__packed)
+/**
+ * @brief 取消结构体在编译过程中的优化对齐，按照实际占用字节数进行对齐。
+ */
 #       define __packed __attribute__((packed))
 #   endif
 #else
@@ -124,5 +135,10 @@ extern "C" {
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_user_common_attribute
+ * @}
+ */
 
 #endif /* __XF_ATTR_H__ */

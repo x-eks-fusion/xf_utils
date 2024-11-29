@@ -34,6 +34,13 @@
 
 #include "xf_predef.h"
 
+/**
+ * @ingroup group_xf_utils_user_common
+ * @defgroup group_xf_utils_user_common_list xf_list
+ * @brief 移除 gnu 特性的双向链表。
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -115,7 +122,7 @@ static inline void __xf_list_add(xf_list_t *new_node, xf_list_t *prev, xf_list_t
     prev->next      = new_node;
 }
 
-/**
+/*
  * list_add - add a new_node entry
  * @new_node: new_node entry to be added
  * @head: list head to add it after
@@ -138,7 +145,7 @@ static inline void xf_list_add(xf_list_t *new_node, xf_list_t *head)
     __xf_list_add(new_node, head, head->next);
 }
 
-/**
+/*
  * list_add_tail - add a new_node entry
  * @new_node: new_node entry to be added
  * @head: list head to add it before
@@ -161,7 +168,7 @@ static inline void xf_list_add_tail(xf_list_t *new_node, xf_list_t *head)
     __xf_list_add(new_node, head->prev, head);
 }
 
-/**
+/*
  * list_del - deletes entry from list.
  * @entry: the element to delete from the list.
  * Note: list_empty() on entry does not return true after this, the entry is
@@ -182,7 +189,7 @@ static inline void __xf_list_del(xf_list_t *prev, xf_list_t *next)
     prev->next = next;
 }
 
-/**
+/*
  * list_del - deletes entry from list.
  * @entry: the element to delete from the list.
  * Note: list_empty() on entry does not return true after this, the entry is
@@ -208,7 +215,7 @@ static inline void xf_list_del(xf_list_t *entry)
     entry->prev = (xf_list_t *)XF_LIST_POISON2;
 }
 
-/**
+/*
  * list_replace - replace old entry by new_node one
  * @old : the element to be replaced
  * @new_node : the new_node element to insert
@@ -219,7 +226,7 @@ static inline void xf_list_del(xf_list_t *entry)
 /**
  * @brief xf_list_replace - 用 new_node 替换旧节点.
  *
- * 如果 @old 为空, 则会被覆盖. (If @old was empty, it will be overwritten.)
+ * 如果 `old` 为空, 则会被覆盖. (If `old` was empty, it will be overwritten.)
  *
  * @param old 被替换的节点.
  * @param new_node 要插入的 new_node 节点.
@@ -244,7 +251,7 @@ static inline void xf_list_replace_init(xf_list_t *old, xf_list_t *new_node)
     xf_list_init(old);
 }
 
-/**
+/*
  * list_del_init - deletes entry from list and reinitialize it.
  * @entry: the element to delete from the list.
  */
@@ -260,14 +267,14 @@ static inline void xf_list_del_init(xf_list_t *entry)
     xf_list_init(entry);
 }
 
-/**
+/*
  * list_move - delete from one list and add as another's head
  * @list: the entry to move
  * @head: the head that will precede our entry
  */
 
 /**
- * @brief xf_list_move - 从一个链表中删除指定节点, 并添加为另一个链表的头节点.
+ * @brief xf_list_move - 从一个链表中删除指定节点, 并添加为另一个链表的头节点。.
  *
  * @param list 要移动的节点.
  * @param head list 节点进入之前的头节点,
@@ -279,7 +286,7 @@ static inline void xf_list_move(xf_list_t *list, xf_list_t *head)
     xf_list_add(list, head);
 }
 
-/**
+/*
  * list_move_tail - delete from one list and add as another's tail
  * @list: the entry to move
  * @head: the head that will follow our entry
@@ -297,7 +304,7 @@ static inline void xf_list_move_tail(xf_list_t *list, xf_list_t *head)
     xf_list_add_tail(list, head);
 }
 
-/**
+/*
  * list_is_last - tests whether @list is the last entry in list @head
  * @list: the entry to test
  * @head: the head of the list
@@ -317,7 +324,7 @@ static inline int xf_list_is_last(const xf_list_t *list, const xf_list_t *head)
     return list->next == head;
 }
 
-/**
+/*
  * list_empty - tests whether a list is empty
  * @head: the list to test.
  */
@@ -335,7 +342,7 @@ static inline int xf_list_empty(const xf_list_t *head)
     return head->next == head;
 }
 
-/**
+/*
  * xf_list_empty_careful - tests whether a list is empty and not being modified
  * @head: the list to test
  *
@@ -369,7 +376,7 @@ static inline int xf_list_empty_careful(const xf_list_t *head)
     return (next == head) && (next == head->prev);
 }
 
-/**
+/*
  * list_rotate_left - rotate the list to the left
  * @head: the head of the list
  */
@@ -389,7 +396,7 @@ static inline void xf_list_rotate_left(xf_list_t *head)
     }
 }
 
-/**
+/*
  * list_is_singular - tests whether a list has just one entry.
  * @head: the list to test.
  */
@@ -419,7 +426,7 @@ static inline void __xf_list_cut_position(
     new_node_first->prev        = head;
 }
 
-/**
+/*
  * xf_list_cut_position - cut a list into two
  * @list: a new_node list to add all removed entries
  * @head: a list with entries
@@ -475,7 +482,7 @@ static inline void __xf_list_splice(
     next->prev = last;
 }
 
-/**
+/*
  * xf_list_splice - join two lists, this is designed for stacks
  * @list: the new_node list to add.
  * @head: the place to add it in the first list.
@@ -495,7 +502,7 @@ static inline void xf_list_splice(
     }
 }
 
-/**
+/*
  * xf_list_splice_tail - join two lists, each list being a queue
  * @list: the new_node list to add.
  * @head: the place to add it in the first list.
@@ -514,7 +521,7 @@ static inline void xf_list_splice_tail(xf_list_t *list, xf_list_t *head)
     }
 }
 
-/**
+/*
  * xf_list_splice_init - join two lists and reinitialise the emptied list.
  * @list: the new_node list to add.
  * @head: the place to add it in the first list.
@@ -538,7 +545,7 @@ static inline void xf_list_splice_init(xf_list_t *list, xf_list_t *head)
     }
 }
 
-/**
+/*
  * xf_list_splice_tail_init - join two lists and reinitialise the emptied list
  * @list: the new_node list to add.
  * @head: the place to add it in the first list.
@@ -566,6 +573,13 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 
 /* ==================== [Macros] ============================================ */
 
+/*
+ * list_entry - get the struct for this entry
+ * @ptr:    the &struct list_head pointer.
+ * @type:   the type of the struct this is embedded in.
+ * @member: the name of the list_struct within the struct.
+ */
+
 /**
  * @brief xf_list_entry - 获取节点的结构体.
  *
@@ -578,6 +592,15 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  */
 #define xf_list_entry(ptr, type, member) \
     xf_container_of(ptr, type, member)
+
+/*
+ * list_first_entry - get the first element from a list
+ * @ptr:    the list head to take the element from.
+ * @type:   the type of the struct this is embedded in.
+ * @member: the name of the list_struct within the struct.
+ *
+ * Note, that list is expected to be not empty.
+ */
 
 /**
  * @brief xf_list_first_entry - 获取链表中的第一个元素.
@@ -592,6 +615,12 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define xf_list_first_entry(ptr, type, member) \
     xf_list_entry((ptr)->next, type, member)
 
+/*
+ * list_for_each    -   iterate over a list
+ * @pos:    the &struct list_head to use as a loop cursor.
+ * @head:   the head for your list.
+ */
+
 /**
  * @brief xf_list_for_each - 迭代链表.
  *
@@ -600,6 +629,15 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  */
 #define xf_list_for_each(pos, head) \
     for ((pos) = (head)->next; (pos) != (head); (pos) = (pos)->next)
+
+/*
+ * __list_for_each  -   iterate over a list
+ * @pos:    the &struct list_head to use as a loop cursor.
+ * @head:   the head for your list.
+ *
+ * This variant doesn't differ from list_for_each() any more.
+ * We don't do prefetching in either case.
+ */
 
 /**
  * @brief __xf_list_for_each - 迭代链表.
@@ -612,6 +650,12 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #define __xf_list_for_each(pos, head) \
     for ((pos) = (head)->next; (pos) != (head); (pos) = (pos)->next)
 
+/*
+ * list_for_each_prev   -   iterate over a list backwards
+ * @pos:    the &struct list_head to use as a loop cursor.
+ * @head:   the head for your list.
+ */
+
 /**
  * @brief xf_list_for_each_prev - 反向迭代链表.
  *
@@ -620,6 +664,13 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
  */
 #define xf_list_for_each_prev(pos, head) \
     for ((pos) = (head)->prev; (pos) != (head); (pos) = (pos)->prev)
+
+/*
+ * list_for_each_safe - iterate over a list safe against removal of list entry
+ * @pos:    the &struct list_head to use as a loop cursor.
+ * @n:      another &struct list_head to use as temporary storage
+ * @head:   the head for your list.
+ */
 
 /**
  * @brief xf_list_for_each_safe - 迭代链表的安全版本, 防止删除链表节点时可能出现的问题.
@@ -632,8 +683,15 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
     for ((pos) = (head)->next, (n) = (pos)->next; (pos) != (head); \
          (pos) = (n), (n) = (pos)->next)
 
+/*
+ * list_for_each_prev_safe - iterate over a list backwards safe against removal of list entry
+ * @pos:    the &struct list_head to use as a loop cursor.
+ * @n:      another &struct list_head to use as temporary storage
+ * @head:   the head for your list.
+ */
+
 /**
- * @brief xf_list_for_each_safe - 方向迭代链表的安全版本, 防止删除链表节点时可能出现的问题.
+ * @brief xf_list_for_each_prev_safe - 方向迭代链表的安全版本, 防止删除链表节点时可能出现的问题.
  *
  * @param pos 迭代游标 &xf_list_t.
  * @param n 另一个 &xf_list_t 用于临时存储.
@@ -646,97 +704,172 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 
 /**
  * @attention 注意, 由于移除了 GUN 的 `typeof`,
- * 以下带有 `_entry` 后缀的宏都必须显式写出包含链表的结构体的类型，
+ * 以下带有 `_entry` 后缀的宏都必须显式写出包含链表的含有链表节点的结构体的类型。，
  * 详情见 @ref xf_container_of.
  *
  * pos 和 n 的数据类型必须相同!
  */
 
+/*
+ * list_for_each_entry  -   iterate over list of given type
+ * @pos:    the type * to use as a loop cursor.
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
+ */
+
 /**
- * @brief 从头到尾遍历给定的结构体对象
+ * @brief list_for_each_entry - 迭代给定类型的链表。
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * 正序迭代含有链表节点的结构体的链表，并取得结构体对象指针。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。。
  */
 #define xf_list_for_each_entry(pos, head, type, member) \
     for ((pos) = xf_list_entry((head)->next, type, member); \
          &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.next, type, member))
 
+/*
+ * list_for_each_entry_reverse - iterate backwards over list of given type.
+ * @pos:    the type * to use as a loop cursor.
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
+ */
+
 /**
- * @brief 从尾到头遍历给定的结构体对象
+ * @brief list_for_each_entry_reverse - 倒序迭代给定类型的链表。
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * 倒序迭代含有链表节点的结构体的链表，并取得结构体对象指针。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_reverse(pos, head, type, member) \
     for ((pos) = xf_list_entry((head)->prev, type, member); \
          &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.prev, type, member))
 
-/**
- * @brief 在xf_list_for_each_entry_continue调用之前，确保传入的pos有效
- *          如果pos不存在，则从头强制拓展一个pos参数
+/*
+ * list_prepare_entry - prepare a pos entry for use in list_for_each_entry_continue()
+ * @pos:    the type * to use as a start point
+ * @head:   the head of the list
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Prepares a pos entry for use as a start point in list_for_each_entry_continue().
+ */
+
+/**
+ * @brief list_prepare_entry - 准备一个 pos 条目以在 list_for_each_entry_continue() 中使用。
+ *
+ * 在 xf_list_for_each_entry_continue() 调用之前，确保传入的 pos 有效。
+ * 如果 pos 不存在，则从头强制拓展一个 pos 参数。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_prepare_entry(pos, head, type, member) \
     ((pos) ? : xf_list_entry(head, type, member))
 
-/**
- * @brief 遍历没有遍历完的链表（迭代不包括当前值）
+/*
+ * list_for_each_entry_continue - continue iteration over list of given type
+ * @pos:    the type * to use as a loop cursor.
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Continue to iterate over list of given type, continuing after
+ * the current position.
+ */
+
+/**
+ * @brief list_for_each_entry_continue - 继续迭代给定类型的链表。
+ *
+ * 继续迭代给定类型的链表，在当前位置之后继续（迭代不包括当前节点）。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_continue(pos, head, type, member) \
     for ((pos) = xf_list_entry((pos)->member.next, type, member); \
          &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.next, type, member))
 
-/**
- * @brief 遍历之前遍历过的链表（迭代不包括当前值且顺序相反）
+/*
+ * list_for_each_entry_continue_reverse - iterate backwards from the given point
+ * @pos:    the type * to use as a loop cursor.
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Start to iterate over list of given type backwards, continuing after
+ * the current position.
+ */
+
+/**
+ * @brief list_for_each_entry_continue_reverse - 从给定点倒序迭代。
+ *
+ * 迭代之前迭代过的链表（迭代不包括当前值且顺序相反）。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_continue_reverse(pos, head, type, member) \
     for ((pos) = xf_list_entry((pos)->member.prev, type, member); \
          &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.prev, type, member))
 
-/**
- * @brief 遍历没有遍历完的链表（迭代包括当前值）
+/*
+ * list_for_each_entry_from - iterate over list of given type from the current point
+ * @pos:    the type * to use as a loop cursor.
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Iterate over list of given type, continuing from current position.
+ */
+
+/**
+ * @brief list_for_each_entry_from - 从当前点开始迭代给定类型的链表。
+ *
+ * 继续迭代给定类型的链表，从当前位置开始迭代（迭代包括当前值）。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_from(pos, head, type, member) \
     for (; &(pos)->member != (head); \
          (pos) = xf_list_entry((pos)->member.next, type, member))
 
+/*
+ * list_for_each_entry_safe - iterate over list of given type safe against removal of list entry
+ * @pos:    the type * to use as a loop cursor.
+ * @n:      another type * to use as temporary storage
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
+ */
+
 /**
- * @brief 遍历的安全版本，提供一个n缓存下一个值。使用时不使用n而使用
- *  当我们需要在遍历的过程中删除链表成员时，请调用它以保证链表后续迭代正确
+ * @brief list_for_each_entry_safe - 安全地迭代给定类型的链表，可删除链表节点。
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param n 每次迭代缓存的结构体对象(是type类型)
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * 迭代链表的安全版本，额外提供结构体指针 n 用于缓存下一个节点。
+ *
+ * @note 在迭代的过程中需要删除链表节点时，使用该宏以确保链表后续能正确迭代。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param n 用作迭代缓存的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_safe(pos, n, head, type, member) \
     for ((pos) = xf_list_entry((head)->next, type, member), \
@@ -744,15 +877,29 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
          &(pos)->member != (head); \
          (pos) = (n), (n) = xf_list_entry(n->member.next, type, member))
 
-/**
- * @brief 遍历没有遍历完的链表（迭代不包括当前值）的安全版本，提供一个n缓存下一个值。使用时不使用n而使用
- *  当我们需要在遍历的过程中删除链表成员时，请调用它以保证链表后续迭代正确
+/*
+ * list_for_each_entry_safe_continue - continue list iteration safe against removal
+ * @pos:    the type * to use as a loop cursor.
+ * @n:      another type * to use as temporary storage
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param n 每次迭代缓存的结构体对象(是type类型)
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Iterate over list of given type, continuing after current point,
+ * safe against removal of list entry.
+ */
+
+/**
+ * @brief list_for_each_entry_safe_continue - 安全地继续迭代链表，可删除链表节点。
+ *
+ * 从给定点继续迭代链表的安全版本（迭代不包括当前节点），额外提供结构体指针 n 用于缓存下一个节点。
+ *
+ * @note 在迭代的过程中需要删除链表节点时，使用该宏以确保链表后续能正确迭代。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param n 用作迭代缓存的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_safe_continue(pos, n, head, type, member) \
     for ((pos) = xf_list_entry((pos)->member.next, type, member), \
@@ -760,30 +907,58 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
          &(pos)->member != (head); \
          (pos) = (n), (n) = xf_list_entry((n)->member.next, type, member))
 
-/**
- * @brief 遍历没有遍历完的链表（迭代包括当前值）的安全版本，提供一个n缓存下一个值。使用时不使用n而使用
- *  当我们需要在遍历的过程中删除链表成员时，请调用它以保证链表后续迭代正确
+/*
+ * list_for_each_entry_safe_from - iterate over list from current point safe against removal
+ * @pos:    the type * to use as a loop cursor.
+ * @n:      another type * to use as temporary storage
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param n 每次迭代缓存的结构体对象(是type类型)
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Iterate over list of given type from current point, safe against
+ * removal of list entry.
+ */
+
+/**
+ * @brief list_for_each_entry_safe_from - 安全地从当前点迭代链表，可删除链表节点。
+ *
+ * 从给定点迭代链表的安全版本（迭代包括当前节点），额外提供结构体指针 n 用于缓存下一个节点。
+ *
+ * @note 在迭代的过程中需要删除链表节点时，使用该宏以确保链表后续能正确迭代。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param n 用作迭代缓存的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_safe_from(pos, n, head, type, member) \
     for ((n) = xf_list_entry((pos)->member.next, type, member); \
          &(pos)->member != (head); \
          (pos) = (n), (n) = xf_list_entry((n)->member.next, type, member))
 
-/**
- * @brief 反向遍历的安全版本，提供一个n缓存下一个值。使用时不使用n而使用
- *  当我们需要在遍历的过程中删除链表成员时，请调用它以保证链表后续迭代正确
+/*
+ * list_for_each_entry_safe_reverse - iterate backwards over list safe against removal
+ * @pos:    the type * to use as a loop cursor.
+ * @n:      another type * to use as temporary storage
+ * @head:   the head for your list.
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param n 每次迭代缓存的结构体对象(是type类型)
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * Iterate backwards over list of given type, safe against removal
+ * of list entry.
+ */
+
+/**
+ * @brief list_for_each_entry_safe_reverse - 安全地倒序迭代链表，可删除链表节点。
+ *
+ * 倒序迭代链表的安全版本，额外提供结构体指针 n 用于缓存下一个节点。
+ *
+ * @note 在迭代的过程中需要删除链表节点时，使用该宏以确保链表后续能正确迭代。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param n 用作迭代缓存的结构体指针（类型为参数 type 的指针）。
+ * @param head 链表的头节点。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_for_each_entry_safe_reverse(pos, n, head, type, member) \
     for ((pos) = xf_list_entry((head)->prev, type, member), \
@@ -791,14 +966,33 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
          &(pos)->member != (head); \
          (pos) = (n), (n) = xf_list_entry((n)->member.prev, type, member))
 
-/**
- * @brief 重置缓存n中下个节点
+/*
+ * list_safe_reset_next - reset a stale list_for_each_entry_safe loop
+ * @pos:    the loop cursor used in the list_for_each_entry_safe loop
+ * @n:      temporary storage used in list_for_each_entry_safe
+ * @member: the name of the list_struct within the struct.
  *
- * @param pos 每次迭代获取到的结构体对象（是type类型）
- * @param n 每次迭代缓存的结构体对象(是type类型)
- * @param head 链表的头节点
- * @param type 结构体的类型
- * @param member 链表在结构体中的成员名
+ * list_safe_reset_next is not safe to use in general if the list may be
+ * modified concurrently (eg. the lock is dropped in the loop body). An
+ * exception to this is if the cursor element (pos) is pinned in the list,
+ * and list_safe_reset_next is called after re-taking the lock and before
+ * completing the current iteration of the loop body.
+ */
+
+/**
+ * @brief list_safe_reset_next - 重置过时的 list_for_each_entry_safe 循环。
+ *
+ * 刷新用于缓存的节点 n(因为该节点可能过时)。
+ *
+ * 如果链表可能被并发修改（例如，锁在循环体中被删除），
+ * 那么 xf_list_safe_reset_next 通常使用起来不安全。
+ * 一个例外是，如果游标元素 (pos) 固定在链表中，
+ * 并且在重新获取锁定之后和完成循环体的当前迭代之前调用 xf_list_safe_reset_next。
+ *
+ * @param pos 用作迭代游标的结构体指针（类型为参数 type 的指针）。
+ * @param n 用作迭代缓存的结构体指针（类型为参数 type 的指针）。
+ * @param type 含有链表节点的结构体的类型。
+ * @param member 链表节点在结构体中的成员名。
  */
 #define xf_list_safe_reset_next(pos, n, type, member) \
     (n) = xf_list_entry((pos)->member.next, type, member)
@@ -806,5 +1000,10 @@ static inline void xf_list_splice_tail_init(xf_list_t *list, xf_list_t *head)
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_user_common_list
+ * @}
+ */
 
 #endif /* __XF_LIST_H__ */

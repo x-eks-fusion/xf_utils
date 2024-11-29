@@ -1,7 +1,7 @@
 /**
  * @file xf_lock_port.h
  * @author catcatBlue (catcatblue@qq.com)
- * @brief
+ * @brief 锁对接。
  * @version 1.0
  * @date 2024-06-25
  *
@@ -15,6 +15,13 @@
 /* ==================== [Includes] ========================================== */
 
 #include "xf_lock_types.h"
+
+/**
+ * @ingroup group_xf_utils_port
+ * @defgroup group_xf_utils_port_lock xf_lock
+ * @brief 对接 xf_lock 操作集。
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,7 +46,12 @@ xf_err_t xf_lock_register(const xf_lock_ops_t *const p_ops);
 /* ==================== [Macros] ============================================ */
 
 #ifdef __cplusplus
-}
+} /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_port_lock
+ * @}
+ */
 
 #endif /* __XF_LOCK_PORT_H__ */

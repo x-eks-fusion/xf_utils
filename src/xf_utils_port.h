@@ -1,7 +1,7 @@
 /**
  * @file xf_utils_port.h
  * @author catcatBlue (catcatblue@qq.com)
- * @brief
+ * @brief xf_utils 模块对接总头文件。
  * @version 1.0
  * @date 2024-06-25
  *
@@ -15,7 +15,6 @@
 /* ==================== [Includes] ========================================== */
 
 #include "xf_common/xf_common.h"
-
 #include "xf_lock/xf_lock_port.h"
 
 #ifdef __cplusplus
@@ -23,6 +22,8 @@ extern "C" {
 #endif
 
 /* ==================== [Defines] =========================================== */
+
+/* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Global Prototypes] ================================= */
 

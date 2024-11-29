@@ -1,7 +1,7 @@
 /**
  * @file xf_std_config.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 封装标准库的配置。
  * @version 0.1
  * @date 2024-06-28
  *

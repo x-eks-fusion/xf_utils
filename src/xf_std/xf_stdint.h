@@ -1,7 +1,7 @@
 /**
  * @file xf_stdint.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 对标准库 stdint.h 的封装。
  * @version 0.1
  * @date 2024-07-09
  *
@@ -19,6 +19,13 @@
 #if XF_STDINT_IS_ENABLE
 #   include <stdint.h>
 #endif
+
+/**
+ * @ingroup group_xf_utils_user_std
+ * @defgroup group_xf_utils_user_std_stdint xf_stdint
+ * @brief 对标准库 stdint.h 的封装。
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,5 +64,10 @@ typedef long     int                    intptr_t;       /*!< 指针大小类型 
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_user_std_stdint
+ * @}
+ */
 
 #endif // __XF_STDINT_H__

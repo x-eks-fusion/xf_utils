@@ -16,17 +16,30 @@
 
 #include "xf_predef.h"
 
+/**
+ * @ingroup group_xf_utils_user_common
+ * @defgroup group_xf_utils_user_common_version xf_version
+ * @brief xfusion 版本号.
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* ==================== [Defines] =========================================== */
 
-/* 主要版本号 (X.x.x) */
+/**
+ * @brief 主要版本号 (X.x.x).
+ */
 #define XF_VERSION_MAJOR   1
-/* 次要版本号 (x.X.x) */
+/**
+ * @brief 次要版本号 (x.X.x).
+ */
 #define XF_VERSION_MINOR   2
-/* 补丁版本号 (x.x.X) */
+/**
+ * @brief 补丁版本号 (x.x.X).
+ */
 #define XF_VERSION_PATCH   0
 
 /* ==================== [Typedefs] ========================================== */
@@ -57,5 +70,10 @@ extern "C" {
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_user_common_version
+ * @}
+ */
 
 #endif /* __XF_VERSION_H__ */

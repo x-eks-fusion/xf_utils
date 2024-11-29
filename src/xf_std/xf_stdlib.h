@@ -1,7 +1,7 @@
 /**
  * @file xf_stdlib.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 对标准库 stdlib.h 的封装。
  * @version 0.1
  * @date 2024-06-28
  *
@@ -19,6 +19,13 @@
 #if XF_STDLIB_IS_ENABLE
 #   include <stdlib.h>
 #endif
+
+/**
+ * @ingroup group_xf_utils_user_std
+ * @defgroup group_xf_utils_user_std_stdlib xf_stdlib
+ * @brief 对标准库 stdlib.h 的封装。
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,5 +45,10 @@ extern "C" {
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_user_std_stdlib
+ * @}
+ */
 
 #endif // __XF_STDLIB_H__

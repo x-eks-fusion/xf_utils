@@ -1,5 +1,5 @@
 /**
- * @file xf_common_config_internal.h
+ * @file xf_common_config.h
  * @author catcatBlue (catcatblue@qq.com)
  * @brief 预定义.
  * xf_attr.h 等头文件通过包含本文件减少对其余外部文件的直接依赖. 如: `xfconfig.h`.
@@ -33,8 +33,7 @@ extern "C" {
 #endif
 
 /**
- * @brief 是否使用 xf_attr中的宏
- *
+ * @brief 是否使用 xf_attr.h 中的宏。
  */
 #if !defined(XF_ATTRIBUTE_ENABLE) || (XF_ATTRIBUTE_ENABLE)
 #   define XF_ATTRIBUTE_IS_ENABLE (1)
