@@ -1,7 +1,7 @@
 /**
- * @file xf_log_config.h
+ * @file xf_utils_log_config.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils_log 配置。
  * @version 0.1
  * @date 2024-06-28
  *

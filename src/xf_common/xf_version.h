@@ -4,9 +4,9 @@
  * @brief xfusion 版本号.
  * @version 1.0
  * @date 2024-06-19
- * 
+ *
  * Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __XF_VERSION_H__
@@ -16,18 +16,33 @@
 
 #include "xf_predef.h"
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_version xf_version
+ * @brief xfusion 版本号.
+ * @endcond
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* ==================== [Defines] =========================================== */
 
-/* 主要版本号 (X.x.x) */
-#define XF_VERSION_MAJOR   0
-/* 次要版本号 (x.X.x) */
+/**
+ * @brief 主要版本号 (X.x.x).
+ */
+#define XF_VERSION_MAJOR   1
+/**
+ * @brief 次要版本号 (x.X.x).
+ */
 #define XF_VERSION_MINOR   2
-/* 补丁版本号 (x.x.X) */
-#define XF_VERSION_PATCH   1
+/**
+ * @brief 补丁版本号 (x.x.X).
+ */
+#define XF_VERSION_PATCH   0
 
 /* ==================== [Typedefs] ========================================== */
 
@@ -57,5 +72,10 @@ extern "C" {
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_common_version
+ * @}
+ */
 
 #endif /* __XF_VERSION_H__ */

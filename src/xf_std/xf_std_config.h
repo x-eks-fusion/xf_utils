@@ -1,7 +1,7 @@
 /**
  * @file xf_std_config.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 封装标准库的配置。
  * @version 0.1
  * @date 2024-06-28
  *
@@ -40,9 +40,9 @@ extern "C" {
 #   define XF_STDBOOL_IS_ENABLE     (0)
 #endif
 
-
 /**
- * @defgroup xf_stdlib_configuration xf_stdlib 配置.
+ * @name xf_stdlib_configuration
+ * xf_stdlib 配置.
  * @{
  */
 
@@ -66,7 +66,8 @@ extern "C" {
  */
 
 /**
- * @defgroup xf_string_configuration xf_string 配置.
+ * @name xf_string_configuration
+ * xf_string 配置.
  * @{
  */
 
@@ -90,11 +91,12 @@ extern "C" {
 
 /**
  * End of xf_string_configuration
- * @} 
+ * @}
  */
 
 /**
- * @defgroup xf_stdio_configuration xf_stdio 配置.
+ * @name xf_stdio_configuration
+ * xf_stdio 配置.
  * @{
  */
 

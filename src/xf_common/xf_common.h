@@ -12,6 +12,14 @@
 #ifndef __XF_COMMON_H__
 #define __XF_COMMON_H__
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils
+ * @defgroup group_xf_utils_common xf_common
+ * @brief 通用宏定义。
+ * @endcond
+ */
+
 /* ==================== [Includes] ========================================== */
 
 #include "xf_common_config.h"

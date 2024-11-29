@@ -17,6 +17,15 @@
 #include "xf_common_config.h"
 #include "../xf_std/xf_stdint.h"
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_err xf_err
+ * @brief 错误码及错误类型定义.
+ * @endcond
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -62,11 +71,11 @@ typedef int32_t xf_err_t;
 /* ==================== [Global Prototypes] ================================= */
 
 /**
-  * @brief 返回 xf_err_code_t 错误代码对应的错误信息字符串。
-  *
-  * @param code xf_err_code_t 错误代码。
-  * @return 错误信息字符串。
-  */
+ * @brief 返回 xf_err_code_t 错误代码对应的错误信息字符串。
+ *
+ * @param code xf_err_code_t 错误代码。
+ * @return const char * 错误信息字符串。
+ */
 const char *xf_err_to_name(xf_err_t code);
 
 /* ==================== [Macros] ============================================ */
@@ -74,5 +83,10 @@ const char *xf_err_to_name(xf_err_t code);
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_common_err
+ * @}
+ */
 
 #endif /* __XF_ERR_H__ */

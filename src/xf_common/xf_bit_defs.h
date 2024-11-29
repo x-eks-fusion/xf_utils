@@ -4,9 +4,9 @@
  * @brief 位操作.
  * @version 1.0
  * @date 2024-06-18
- * 
+ *
  * Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __XF_BIT_DEFS_H__
@@ -16,12 +16,25 @@
 
 #include "xf_common_config.h"
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_bit_defs xf_bit_defs
+ * @brief 位定义以及位操作宏。
+ * @endcond
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /* ==================== [Defines] =========================================== */
 
+/**
+ * @name 32 位位宏定义。
+ * @{
+ */
 #if (!defined(BIT0))
 #define BIT31   0x80000000
 #define BIT30   0x40000000
@@ -56,7 +69,15 @@ extern "C" {
 #define BIT1    0x00000002
 #define BIT0    0x00000001
 #endif /* (!defined(BIT0)) */
+/**
+ * End of 32 位位宏定义。
+ * @}
+ */
 
+/**
+ * @name 64 位位宏定义。
+ * @{
+ */
 #if (!defined(BIT32))
 #define BIT63   (0x80000000ULL << 32)
 #define BIT62   (0x40000000ULL << 32)
@@ -91,6 +112,10 @@ extern "C" {
 #define BIT33   (0x00000002ULL << 32)
 #define BIT32   (0x00000001ULL << 32)
 #endif /* (!defined(BIT32)) */
+/**
+ * End of 64 位位宏定义。
+ * @}
+ */
 
 /* ==================== [Typedefs] ========================================== */
 
@@ -100,13 +125,32 @@ extern "C" {
 
 #ifndef __ASSEMBLER__
 #ifndef BIT
+/**
+ * @brief 获取第 nr 位为 1 的值（通常小于 32 位）。
+ *
+ * @param nr 比特下标，从 0 开始。
+ *
+ * @note 生成值的范围不能超过 `unsigned long` 所能表示的范围。
+ */
 #define BIT(nr)                 (1UL << (nr))
 #endif
 #ifndef BIT64
+/**
+ * @brief 获取第 nr 位为 1 的值（通常小于 64 位）。
+ *
+ * @param nr 比特下标，从 0 开始。
+ *
+ * @note 生成值的范围不能超过 `unsigned long long` 所能表示的范围。
+ */
 #define BIT64(nr)               (1ULL << (nr))
 #endif
 #else /* defined (__ASSEMBLER__) */
 #ifndef BIT
+/**
+ * @brief 获取第 nr 位为 1 的值。
+ *
+ * @param nr 比特下标，从 0 开始。
+ */
 #define BIT(nr)                 (1 << (nr))
 #endif
 #endif /* __ASSEMBLER__ */
@@ -118,7 +162,7 @@ extern "C" {
 /**
  * @brief 设置 32 位变量 var 的 bit_n 为 0。
  *
- * @param variable 被读写的变量。
+ * @param var 被读写的变量。
  * @param n 比特下标，从 0 开始。
  */
 #define BIT_SET0(var, n) ((var) &= ~BIT(n))
@@ -128,7 +172,7 @@ extern "C" {
 /**
  * @brief 设置 32 位变量 var 的 bit_n 为 1。
  *
- * @param variable 被读写的变量。
+ * @param var 被读写的变量。
  * @param n 比特下标，从 0 开始。
  */
 #define BIT_SET1(var, n) ((var) |= BIT(n))
@@ -138,8 +182,9 @@ extern "C" {
 /**
  * @brief 设置 32 位变量 var 的 bit_n 为 value。
  *
- * @param variable 被读写的变量。
+ * @param var 被读写的变量。
  * @param n 比特下标，从 0 开始。
+ * @param value 更新的值。
  */
 #define BIT_SET(var, n, value) \
     ((value) ? BIT_SET1((var), (n)) : BIT_SET0((var), (n)))
@@ -149,7 +194,7 @@ extern "C" {
 /**
  * @brief 翻转 32 位变量 var 的 bit_n。
  *
- * @param variable 被翻转的变量。
+ * @param var 被翻转的变量。
  * @param n 比特下标，从 0 开始。
  */
 #define BIT_FLIP(var, n) ((var) ^= BIT(n))
@@ -159,7 +204,7 @@ extern "C" {
 /**
  * @brief 获取 32 位源 src 的 bit_n。
  *
- * @param variable 被读取的变量。
+ * @param src 被读取的变量。
  * @param n 比特下标，从 0 开始。
  *
  * @return src 的 bit_n 上的值。
@@ -171,7 +216,7 @@ extern "C" {
 /**
  * @brief 获取将 32 位源 src 的 bit_n 置 0 后的值。
  *
- * @param variable 被读取的变量。
+ * @param src 被读取的变量。
  * @param n 比特下标，从 0 开始。
  *
  * @return 32 位 src 的 bit_n 置 0 后的值。
@@ -183,7 +228,7 @@ extern "C" {
 /**
  * @brief 获取将 32 位源 src 的 bit_n 置 1 后的值。
  *
- * @param variable 被读取的变量。
+ * @param src 被读取的变量。
  * @param n 比特下标，从 0 开始。
  *
  * @return 32 位 src 的 bit_n 置 1 后的值。
@@ -195,7 +240,7 @@ extern "C" {
 /**
  * @brief 获取将 32 位源 src 的 bit_n 置 value 后的值。
  *
- * @param variable 被读取的变量。
+ * @param src 被读取的变量。
  * @param n 比特下标，从 0 开始。
  * @param value 0 或 1。
  *
@@ -209,7 +254,7 @@ extern "C" {
 /**
  * @brief 获取翻转 32 位源 src 的 bit_n 后的值。
  *
- * @param variable 被读取的变量。
+ * @param src 被读取的变量。
  * @param n 比特下标，从 0 开始。
  *
  * @return 翻转 32 位 src 的 bit_n 后的值。
@@ -228,9 +273,11 @@ extern "C" {
  *
  * @return 低 n 位为 1 的位掩码。
  *
- * @example
- * BITS_MASK(6)  == 0x003f ==          0b00111111
- * BITS_MASK(13) == 0x1fff == 0b00011111 11111111
+ * 示例如下：
+ * @code{c}
+ * BITS_MASK(6);  //  == 0x003f ==          0b00111111
+ * BITS_MASK(13); //  == 0x1fff == 0b00011111 11111111
+ * @endcode
  */
 #define BITS_MASK(n) (((n) < 32) ? (BIT(n) - 1) : (~0UL))
 #endif
@@ -245,11 +292,13 @@ extern "C" {
  * @note
  * 1. 位掩码为 1 的位表示需要被设为 0 的位。
  *
- * @example
+ * 示例如下：
+ * @code{c}
  * uint32_t var = 0xffff;
- * BITS_SET0(var, 0b0011 0110 0101 1010) == 0b11001001 10100101
+ * BITS_SET0(var, 0b0011 0110 0101 1010); // == 0b11001001 10100101
  * var = 0xffff;
- * BITS_SET0(var, BITS_MASK(4) << 3)     == 0b11111111 10000111
+ * BITS_SET0(var, BITS_MASK(4) << 3);     // == 0b11111111 10000111
+ * @endcode
  */
 #define BITS_SET0(var, bits_mask) ((var) &= ~(bits_mask))
 #endif
@@ -264,11 +313,13 @@ extern "C" {
  * @note
  * 1. 位掩码为 1 的位表示需要被设为 1 的位。
  *
- * @example
+ * 示例如下：
+ * @code{c}
  * uint32_t var = 0x0000;
- * BITS_SET1(var, 0b0011 0110 0101 1010) == 0b00110110 01011010
+ * BITS_SET1(var, 0b0011 0110 0101 1010); // == 0b00110110 01011010
  * var = 0x0000;
- * BITS_SET1(var, BITS_MASK(4) << 3)     == 0b00000000 01111000
+ * BITS_SET1(var, BITS_MASK(4) << 3);     //  == 0b00000000 01111000
+ * @endcode
  */
 #define BITS_SET1(var, bits_mask) ((var) |= (bits_mask))
 #endif
@@ -296,7 +347,8 @@ extern "C" {
  *
  * @return 32 位源 src 内，从 offset 位起，共 n 位数据。
  *
- * @example
+ * 详细说明如下：
+ * @code{markdown}
  * BITS_GET(0b0011 1010 1111 0010, 7, 5) == 0x57 == 0b01010111
  *
  * bit:                54 3210  : bit == 5
@@ -305,6 +357,7 @@ extern "C" {
  * num:         7654 321        : n   == 7
  * ————————————————————————————————————————————
  * ret:     0b0 1010 111        : ret == 0x57
+ * @endcode
  */
 #define BITS_GET(src, n, offset) (((src) & (BITS_MASK(n) << (offset))) >> (offset))
 #endif
@@ -313,7 +366,7 @@ extern "C" {
 /**
  * @brief 检查变量 var 在 bits_mask 的位置上是否存在 1。
  *
- * @param var 待检查的变量。
+ * @param src 待检查的变量。
  * @param bits_mask 位掩码。注意！为 1 的位表示需要检查的位。
  *
  * @note
@@ -333,16 +386,18 @@ extern "C" {
  *
  * @return 32 位 src 的 offset 位起 n 位修改为 value 的值。
  *
- * @example
- *  BITS_GET_MODIFY(src       , n, offset, value     )
- *  BITS_GET_MODIFY(0x4c5ca6d2, 8, 13    , 0b10101111)
+ * 示例如下：
+ * @code{c}
+ *  // BITS_GET_MODIFY(src       , n, offset, value     )
+ *     BITS_GET_MODIFY(0x4c5ca6d2, 8, 13    , 0b10101111)
+ *  // src:    0100 1100 0101 1100 1010 0110 1101 0010 == 0x4c5ca6d2
+ *  //                      1 0101 111                 == (value << 13)
+ *  //                      ↓ ↓↓↓↓ ↓↓↓
+ *  // ret:    0100 1100 0101 0101 1110 0110 1101 0010 == 0x4c55e6d2
+ * @endcode
  *
- *  src:    0100 1100 0101 1100 1010 0110 1101 0010 == 0x4c5ca6d2
- *                       1 0101 111                 == (value << 13)
- *                       ↓ ↓↓↓↓ ↓↓↓
- *  ret:    0100 1100 0101 0101 1110 0110 1101 0010 == 0x4c55e6d2
- *
- * @details
+ * 详细说明如下：
+ * @code{markdown}
  *          0100 1100 0101 1100 1010 0110 1101 0010   <=  src
  *       ^  0000 0000 0001 0101 1110 0000 0000 0000   <=  ((BITS_MASK(n) & (value)) << (offset))
  *      ————————————————————————————————————————————————
@@ -357,6 +412,7 @@ extern "C" {
  *       ^  0100 1100 0101 1100 1010 0110 1101 0010   <=  src
  *      ————————————————————————————————————————————————
  *          0100 1100 0101 0101 1110 0110 1101 0010   =>  ret
+ * @endcode
  *
  * @note
  * 1. n + offset 不要大于 32 位。
@@ -371,7 +427,7 @@ extern "C" {
 /**
  * @brief 设置 32 位 src 的 offset 位起 n 位为 value。
  *
- * @see BITS_GET_MODIFY @ref BITS_GET_MODIFY
+ * @see BITS_GET_MODIFY
  * @note
  * 1. n + offset 不要大于 32 位。
  */
@@ -382,5 +438,10 @@ extern "C" {
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_common_bit_defs
+ * @}
+ */
 
 #endif /* __XF_BIT_DEFS_H__ */

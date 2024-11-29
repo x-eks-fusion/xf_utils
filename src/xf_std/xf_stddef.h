@@ -1,7 +1,7 @@
 /**
  * @file xf_stddef.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 对标准库 stddef.h 的封装。
  * @version 0.1
  * @date 2024-07-09
  *
@@ -17,17 +17,25 @@
 #include "xf_std_config.h"
 
 #if XF_STDDEF_IS_ENABLE
-    #include <stddef.h>
+#include <stddef.h>
 #endif
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stddef xf_stddef
+ * @brief 对标准库 stddef.h 的封装。
+ * @endcond
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* ==================== [Defines] =========================================== */
-
 #if (XF_STDDEF_IS_ENABLE == 0)
+
+/* ==================== [Defines] =========================================== */
 
 #ifndef NULL
 #define NULL ((void *)0)
@@ -35,8 +43,7 @@ extern "C" {
 
 typedef long     int                    ptrdiff_t;      /*!< 指针比较大小类型 */
 
-typedef long unsigned int size_t;
-
+typedef long unsigned int               size_t;
 
 /* ==================== [Typedefs] ========================================== */
 
@@ -44,10 +51,15 @@ typedef long unsigned int size_t;
 
 /* ==================== [Macros] ============================================ */
 
+#endif // XF_STDDEF_IS_ENABLE
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
 
-#endif // XF_STDDEF_IS_ENABLE
+/**
+ * End of group_xf_utils_std_stddef
+ * @}
+ */
 
 #endif // __XF_STDDEF_H__

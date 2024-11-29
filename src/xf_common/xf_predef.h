@@ -1,7 +1,7 @@
 /**
  * @file xf_predef.h
  * @author catcatBlue (catcatblue@qq.com)
- * @brief 小工具.
+ * @brief 预定义宏.
  * @version 1.0
  * @date 2024-06-19
  *
@@ -15,6 +15,15 @@
 /* ==================== [Includes] ========================================== */
 
 #include "xf_common_config.h"
+
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_common
+ * @defgroup group_xf_utils_common_predef xf_predef
+ * @brief 预定义宏. 如 UNUSED, STR, xf_offsetof, xf_container_of.
+ * @endcond
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -69,27 +78,52 @@ extern "C" {
 #define CONCAT3(a, b, c)                a##b##c
 #endif
 
+#if !defined(XCONCAT)
+/**
+ * @brief 展开拼接。
+ * 与 CONCAT 相比，此宏会先展开宏后拼接。
+ */
+#define XCONCAT(a, b)                   CONCAT(a, b)
+#endif
+
+#if !defined(XCONCAT3)
+/**
+ * @brief 展开拼接 3 个参数。
+ * 与 CONCAT3 相比，此宏会先展开宏后拼接。
+ */
+#define XCONCAT3(a, b, c)               CONCAT3(a, b, c)
+#endif
+
+#ifndef STR
 /**
  * @brief 字符串化。
- *        见：https://gcc.gnu.org/onlinedocs/gcc-3.4.3/cpp/Stringification.html
+ * 见：https://gcc.gnu.org/onlinedocs/gcc-3.4.3/cpp/Stringification.html
  */
-#ifndef STR
 #define STR(x)                          #x
 #endif
+
 #ifndef XSTR
+/**
+ * @brief 参数字符串化。
+ * 见：https://gcc.gnu.org/onlinedocs/gcc-3.4.3/cpp/Stringification.html
+ */
 #define XSTR(x)                         STR(x)
 #endif
 
 #ifndef xf_offsetof
 /**
  * @brief xf_offsetof - 返回结构成员相对于结构开头的字节偏移量。
+ *
+ * @param type 结构体的类型名。
+ * @param member 结构中成员的名称。
+ * @return size_t 结构成员相对于结构开头的字节偏移量。
  */
 #define xf_offsetof(type, member) ((size_t)&((type *)0)->member)
-#endif /* offsetof */
+#endif
 
 #ifndef xf_container_of
 /**
- * @brief container_of - 通过结构体成员变量地址获取结构体的地址.
+ * @brief xf_container_of - 通过结构体成员变量地址获取结构体的地址.
  *
  * @param ptr 指向成员的指针。
  * @param type 结构体类型。
@@ -97,7 +131,7 @@ extern "C" {
  *
  * @return 结构体的地址。
  *
- * @example
+ * 示例如下：
  * @code{c}
  * typedef struct {
  *     int member1;
@@ -142,5 +176,10 @@ extern "C" {
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
+
+/**
+ * End of group_xf_utils_common_predef
+ * @}
+ */
 
 #endif /* __XF_PREDEF_H__ */

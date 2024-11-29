@@ -1,5 +1,5 @@
 /**
- * @file xf_log_mem.c
+ * @file xf_utils_log_dump.c
  * @author cangyu (sky.kirto@qq.com)
  * @brief
  * @version 0.1

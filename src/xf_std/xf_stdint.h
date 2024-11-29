@@ -1,7 +1,7 @@
 /**
  * @file xf_stdint.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 对标准库 stdint.h 的封装。
  * @version 0.1
  * @date 2024-07-09
  *
@@ -20,6 +20,15 @@
 #   include <stdint.h>
 #endif
 
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_stdint xf_stdint
+ * @brief 对标准库 stdint.h 的封装。
+ * @endcond
+ * @{
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,7 +44,6 @@ typedef unsigned char                   uint8_t;        /*!<  8bit 无符号整�
 typedef unsigned short                  uint16_t;       /*!< 16bit 无符号整形 */
 typedef unsigned int                    uint32_t;       /*!< 32bit 无符号整形 */
 typedef long     int                    intptr_t;       /*!< 指针大小类型 */
-
 
 #ifndef UINT8_MAX
 #define UINT8_MAX                       (0xffU)         /*!<  uint8_t 的最大数字 */
@@ -58,5 +66,10 @@ typedef long     int                    intptr_t;       /*!< 指针大小类型 
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_std_stdint
+ * @}
+ */
 
 #endif // __XF_STDINT_H__

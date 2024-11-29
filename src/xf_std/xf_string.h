@@ -1,7 +1,7 @@
 /**
  * @file xf_string.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief
+ * @brief xf_utils 对标准库 string.h 的封装。
  * @version 0.1
  * @date 2024-06-28
  *
@@ -19,6 +19,15 @@
 #if XF_STRING_IS_ENABLE
 #   include <string.h>
 #endif
+
+/**
+ * @cond XFAPI_USER
+ * @ingroup group_xf_utils_std
+ * @defgroup group_xf_utils_std_string xf_string
+ * @brief 对标准库 string.h 的封装。
+ * @endcond
+ * @{
+ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,5 +49,10 @@ extern "C" {
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+/**
+ * End of group_xf_utils_std_string
+ * @}
+ */
 
 #endif // __XF_STRING_H__

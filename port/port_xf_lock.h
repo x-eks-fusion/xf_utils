@@ -1,12 +1,12 @@
 /**
  * @file port_xf_lock.h
  * @author cangyu (sky.kirto@qq.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2024-06-27
- * 
+ *
  * @copyright Copyright (c) 2024, CorAL. All rights reserved.
- * 
+ *
  */
 
 #ifndef __PORT_XF_LOCK_H__
