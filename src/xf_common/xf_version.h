@@ -23,11 +23,11 @@ extern "C" {
 /* ==================== [Defines] =========================================== */
 
 /* 主要版本号 (X.x.x) */
-#define XF_VERSION_MAJOR   0
+#define XF_VERSION_MAJOR   1
 /* 次要版本号 (x.X.x) */
 #define XF_VERSION_MINOR   2
 /* 补丁版本号 (x.x.X) */
-#define XF_VERSION_PATCH   1
+#define XF_VERSION_PATCH   0
 
 /* ==================== [Typedefs] ========================================== */
 
