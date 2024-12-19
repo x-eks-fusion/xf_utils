@@ -89,6 +89,11 @@ extern "C" {
 #   define xf_user_memset(ptr, value, size) memset((ptr), (value), (size))
 #endif
 
+#ifndef xf_user_strcmp
+#   define xf_user_strcmp(dest, src)   strcmp(dest, src)
+#endif
+
+
 /**
  * End of xf_string_configuration
  * @}
