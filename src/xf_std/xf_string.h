@@ -17,7 +17,7 @@
 #include "xf_std_config.h"
 
 #if XF_STRING_IS_ENABLE
-#   include <string.h>
+    #include <string.h>
 #endif
 
 /**
@@ -43,6 +43,9 @@ extern "C" {
 #define xf_bzero(ptr, size)            xf_memset((void*)(ptr), 0, (size))
 #define xf_memcpy(dest, src, n)        xf_user_memcpy((dest), (src), (n))
 #define xf_memcmp(dest, src, n)        xf_user_memcmp((dest), (src), (n))
+#define xf_strcmp(dest, src)           xf_user_strcmp((dest), (src))
+#define xf_strncmp(dest, src, n)       xf_user_strncmp((dest), (src), (n))
+#define xf_strlen(str)                 xf_user_strlen((str))
 
 /* ==================== [Macros] ============================================ */
 
