@@ -41,6 +41,27 @@ extern "C" {
 #   define XF_ATTRIBUTE_IS_ENABLE (0)
 #endif
 
+/**
+ * @brief 主要版本号 (X.x.x).
+ */
+#if !defined(XF_VERSION_MAJOR)
+#define XF_VERSION_MAJOR   1
+#endif
+
+/**
+ * @brief 次要版本号 (x.X.x).
+ */
+#if !defined(XF_VERSION_MINOR)
+#define XF_VERSION_MINOR   0
+#endif
+
+/**
+ * @brief 补丁版本号 (x.x.X).
+ */
+#if !defined(XF_VERSION_PATCH)
+#define XF_VERSION_PATCH   0
+#endif
+
 /* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Global Prototypes] ================================= */
