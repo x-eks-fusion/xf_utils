@@ -17,7 +17,7 @@
 #include "xf_std_config.h"
 
 #if XF_STRING_IS_ENABLE
-    #include <string.h>
+#include <string.h>
 #endif
 
 /**
