@@ -98,7 +98,7 @@ extern "C" {
 #endif
 
 #ifndef xf_user_strlen
-#   define xf_user_strlen(str)   strlen(src)
+#   define xf_user_strlen(str)   strlen(str)
 #endif
 
 /**
