@@ -101,7 +101,6 @@ extern "C" {
 #   define xf_user_strlen(str)   strlen(src)
 #endif
 
-
 /**
  * End of xf_string_configuration
  * @}
